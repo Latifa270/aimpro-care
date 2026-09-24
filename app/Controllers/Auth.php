@@ -10,7 +10,13 @@ class Auth extends BaseController
     public function login()
     {
         if (session()->get('isLoggedIn')) {
-            return redirect()->to('/');
+            if (session()->get('role') === 'Admin') {
+                return redirect()->to('/admin/dashboard');
+            }
+
+            if (session()->get('role') === 'Qc') {
+                return redirect()->to('/qc/dashboard');
+            }
         }
 
         return view('auth/login');
@@ -54,7 +60,12 @@ class Auth extends BaseController
             return redirect()->to('/admin/dashboard');
         }
 
-        return redirect()->to('/qc/dashboard');
+        if ($user['role'] === 'QC') {
+            return redirect()->to('/qc/dashboard');
+        }
+
+        return redirect()->to('/login')
+            ->with('error', 'Role tidak valid');
     }
 
     public function logout()

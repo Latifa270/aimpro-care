@@ -10,16 +10,16 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'name'  => 'Administrator',
-                'email' => 'admin@aimprocare.test',
+                'name'     => 'Administrator',
+                'email'    => 'admin@aimprocare.test',
                 'password' => 'Admin123',
-                'role'  => 'Admin',
+                'role'     => 'Admin',
             ],
             [
-                'name'  => 'Petugas QC',
-                'email' => 'qc@aimprocare.test',
+                'name'     => 'Petugas QC',
+                'email'    => 'qc@aimprocare.test',
                 'password' => 'Qc123',
-                'role'  => 'QC',
+                'role'     => 'QC',
             ],
         ];
 

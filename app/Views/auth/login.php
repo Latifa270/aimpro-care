@@ -77,6 +77,20 @@
                     </p>
                 </div>
 
+                <?php if (session()->getFlashdata('error')): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= esc(session()->getFlashdata('error')) ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (session()->getFlashdata('errors')): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                            <div><?= esc($error) ?></div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+
                 <form action="<?= site_url('login') ?>" method="post">
                     <?= csrf_field() ?>
 
