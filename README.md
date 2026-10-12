@@ -1,69 +1,119 @@
-# CodeIgniter 4 Application Starter
+A. AIMpro Care
+AIMpro Care adalah aplikasi web untuk mengelola pemeriksaan produk, penjualan, garansi, dan klaim garansi. Aplikasi ini membantu petugas dan admin menyimpan data dengan lebih rapi, sementara pembeli dapat mengecek garansi serta mengajukan klaim tanpa login.
+Alur utama: Pemeriksaan QC → Produk Siap Dijual → Penjualan → Garansi Aktif → Cek Garansi → Klaim Garansi.
 
-## What is CodeIgniter?
+B. Daftar Isi
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+- Tentang AIMpro Care — Gambaran singkat tentang fungsi aplikasi.
+- Teknologi — Teknologi yang digunakan untuk membangun aplikasi.
+- Pengguna dan Hak Akses — Penjelasan tugas petugas QC, admin, dan pembeli.
+- Fitur Utama — Ringkasan fitur yang tersedia di aplikasi.
+- Alur QC, Penjualan, dan Garansi — Cara produk diperiksa, dijual, lalu mendapat garansi.
+- Klaim Garansi — Cara pembeli mengajukan klaim dan status prosesnya.
+- Portal Pembeli — Cara pembeli mengecek garansi dan melihat kartu garansi.
+- WhatsApp, Dashboard, dan Laporan — Informasi notifikasi dan ringkasan data.
+- Keamanan — Cara aplikasi menjaga akun dan data.
+- Database dan Struktur Project — Gambaran tabel dan susunan folder project.
+- Instalasi — Langkah umum untuk menjalankan aplikasi di komputer lokal.
+- Catatan Pengembangan — Hal penting yang perlu diperhatikan saat mengembangkan aplikasi.
+- Lisensi — Informasi lisensi project.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+C. Tentang AIMpro Care
+AIMpro Care memiliki dua fungsi utama:
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+1. Mencatat hasil pemeriksaan produk sebelum dijual.
+2. Mengelola garansi dan klaim setelah produk dibeli.
+   Setiap unit memiliki nomor seri unik. Setelah lolos QC, unit dapat dicatat sebagai penjualan dan diberi garansi. Pembeli dapat mengecek garansi menggunakan nomor seri, nomor garansi, atau QR Code.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+D. Teknologi
 
-## Installation & updates
+- Backend: PHP 8 dan CodeIgniter 4
+- Database: MySQL atau MariaDB
+- Tampilan: Bootstrap 5, HTML, CSS, dan JavaScript
+- QR Code: endroid/qr-code
+- PDF: dompdf/dompdf
+- Excel: phpoffice/phpspreadsheet
+- WhatsApp: WAKITA — https://wakita.aminsproject.com
+- PWA: Manifest dan Service Worker
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+E. Pengguna dan Hak Akses
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- Petugas QC: memasukkan data produk, mengisi checklist, mengunggah foto atau video, dan mencatat hasil pemeriksaan.
+- Admin: mengelola produk, pembeli, penjualan, garansi, klaim, laporan, dan pengaturan.
+- Pembeli: mengecek garansi, melihat kartu garansi, mengajukan klaim, dan memantau status klaim tanpa login.
 
-## Setup
+F. Fitur Utama
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+- Manajemen produk: mencatat data produk dan nomor seri setiap unit.
+- Quality Control (QC): menyimpan checklist, foto, video, catatan, dan hasil pemeriksaan.
+- Penjualan: mencatat data pembeli, tanggal pembelian, dan informasi transaksi.
+- Garansi digital: membuat nomor garansi, menentukan masa berlaku, serta membuat QR Code dan kartu garansi.
+- Klaim garansi: mencatat pengajuan, bukti kerusakan, status, dan riwayat klaim.
+- Dashboard dan laporan: menampilkan ringkasan QC, penjualan, garansi, dan klaim.
+- Activity log: mencatat aktivitas penting pengguna.
 
-## Important Change with index.php
+G. Alur QC, Penjualan, dan Garansi
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+1. Petugas QC memasukkan data unit dan nomor seri.
+2. Petugas memeriksa kondisi fisik, kelengkapan, dan fungsi produk.
+3. Petugas mengunggah dokumentasi serta menentukan hasil QC.
+4. Unit yang lolos QC dapat diproses untuk dijual.
+5. Admin mencatat penjualan dan data pembeli.
+6. Sistem membuat nomor garansi, tanggal berlaku, QR Code, dan kartu garansi.
+   Hasil QC dapat berupa Lolos QC, Tidak Lolos QC, atau Perlu Pemeriksaan Ulang. Unit yang belum lolos QC tidak boleh dijual.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+H. Klaim Garansi
+Pembeli dapat mengajukan klaim melalui portal dengan mengisi nomor seri atau nomor garansi, menjelaskan kerusakan, dan mengunggah bukti jika diperlukan.
+Status klaim dapat meliputi:
 
-**Please** read the user guide for a better explanation of how CI4 works!
+- Pengajuan Baru
+- Sedang Diverifikasi
+- Klaim Diterima atau Ditolak
+- Barang Diterima
+- Sedang Diperiksa
+- Sedang Diproses
+- Selesai
+  Perubahan status sebaiknya disertai waktu, pengguna, dan catatan.
 
-## Repository Management
+I. Portal Pembeli
+Pembeli dapat menggunakan nomor seri, nomor garansi, atau QR Code untuk mengecek status garansi. Portal juga dapat menampilkan kartu garansi dan menyediakan formulir klaim.
+Perlindungan data: samarkan informasi pribadi pembeli. Foto dan video pemeriksaan internal tidak boleh ditampilkan secara publik.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+J. WhatsApp, Dashboard, dan Laporan
+Jika WAKITA sudah dikonfigurasi, aplikasi dapat mengirim notifikasi tentang aktivasi garansi, pengajuan klaim, perubahan status klaim, dan penyelesaian klaim.
+Dashboard dan laporan dapat merangkum data QC, penjualan, garansi, serta klaim. Ekspor PDF atau Excel digunakan jika fiturnya sudah tersedia. Pastikan data yang ditampilkan berasal dari database.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+K. Keamanan
 
-## Server Requirements
+- Simpan password dalam bentuk hash.
+- Batasi akses sesuai peran pengguna.
+- Gunakan validasi input dan perlindungan CSRF.
+- Lindungi aplikasi dari SQL Injection dan XSS.
+- Periksa jenis serta ukuran file yang diunggah.
+- Gunakan token QR yang sulit ditebak.
+- Lindungi data pribadi, foto, dan video internal.
+- Gunakan HTTPS pada server produksi.
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+L. Database dan Struktur Project
+Tabel utama yang direncanakan mencakup:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+- users — data pengguna.
+- products, product_units — data produk dan unit.
+- qc_inspections, qc_checklist_items, qc_documentations — hasil dan dokumentasi QC.
+- customers, sales — data pembeli dan penjualan.
+- warranties, warranty_claims, claim_histories — garansi dan riwayat klaim.
+- notifications, activity_logs, settings — notifikasi, catatan aktivitas, dan pengaturan.
+  Struktur folder mengikuti CodeIgniter 4, seperti app/Controllers, app/Models, app/Views, app/Database, dan public/assets.
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+M. Instalasi
+Persyaratan umum: PHP 8.x, Composer, MySQL/MariaDB, dan ekstensi PHP yang dibutuhkan.
 
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+1. Unduh atau clone repository.
+2. Jalankan composer install.
+3. Salin file env menjadi .env.
+4. Atur URL aplikasi dan koneksi database di .env.
+5. Buat database sesuai konfigurasi.
+6. Jika migration tersedia, jalankan php spark migrate.
+7. Jalankan aplikasi dengan php spark serve.
+8. Buka http://localhost:8080 di browser.
+   Perintah di atas perlu disesuaikan dengan isi repository. Jangan gunakan konfigurasi development untuk server produksi.
