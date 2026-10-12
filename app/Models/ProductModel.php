@@ -17,6 +17,7 @@ class ProductModel extends Model
         'brand',
         'model',
         'description',
+        'warranty_duration_months',
     ];
 
     protected bool $allowEmptyInserts = false;

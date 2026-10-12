@@ -17,6 +17,7 @@ class WarrantyModel extends Model
         'warranty_number',
         'start_date',
         'end_date',
+        'duration_months',
         'qr_token',
         'card_path',
         'status',

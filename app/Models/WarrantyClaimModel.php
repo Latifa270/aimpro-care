@@ -56,4 +56,36 @@ class WarrantyClaimModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getClaimsWithRelations(): array
+    {
+        return $this->select(
+            'warranty_claims.*,
+             warranties.warranty_number,
+             warranties.sales_id,
+             customers.name AS customer_name,
+             customers.whatsapp AS customer_whatsapp'
+        )
+            ->join('warranties', 'warranties.id = warranty_claims.warranty_id')
+            ->join('sales', 'sales.id = warranties.sales_id')
+            ->join('customers', 'customers.id = sales.customer_id')
+            ->orderBy('warranty_claims.created_at', 'DESC')
+            ->findAll();
+    }
+
+    public function getClaimWithRelations(int $id): ?array   // ← TANPA 's'
+    {
+        return $this->select(
+            'warranty_claims.*,
+             warranties.warranty_number,
+             warranties.sales_id,
+             customers.name AS customer_name,
+             customers.whatsapp AS customer_whatsapp'
+        )
+            ->join('warranties', 'warranties.id = warranty_claims.warranty_id')
+            ->join('sales', 'sales.id = warranties.sales_id')
+            ->join('customers', 'customers.id = sales.customer_id')
+            ->where('warranty_claims.id', $id)
+            ->first();
+    }
 }

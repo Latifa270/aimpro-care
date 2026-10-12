@@ -1,0 +1,91 @@
+/* ini untuk reset, body dan background ya */
+   *,
+   *::before,
+   *::after {
+       box-sizing: border-box;
+   }
+   
+   html {
+       min-height: 100%;
+       scroll-behavior: smooth;
+   }
+   
+   body {
+       min-height: 100vh;
+       margin: 0;
+   
+       font-family: var(--font-family);
+       font-size: var(--font-size-base);
+       color: var(--app-text);
+   
+       background:
+           radial-gradient(
+               circle at 12% 15%,
+               rgba(200, 223, 219, 0.72),
+               transparent 30%
+           ),
+           radial-gradient(
+               circle at 88% 82%,
+               rgba(102, 163, 191, 0.28),
+               transparent 32%
+           ),
+           radial-gradient(
+               circle at 80% 10%,
+               rgba(51, 104, 160, 0.10),
+               transparent 24%
+           ),
+           var(--app-bg);
+   
+       -webkit-font-smoothing: antialiased;
+       text-rendering: optimizeLegibility;
+   }
+   
+   body,
+   button,
+   input,
+   textarea,
+   select {
+       font-family: var(--font-family);
+   }
+   
+   button,
+   input,
+   textarea,
+   select {
+       font-size: inherit;
+   }
+   
+   img,
+   svg,
+   video {
+       max-width: 100%;
+   }
+   
+   button,
+   a {
+       -webkit-tap-highlight-color: transparent;
+   }
+   
+   a {
+       color: inherit;
+   }
+   
+   button:focus-visible,
+   a:focus-visible,
+   input:focus-visible,
+   textarea:focus-visible,
+   select:focus-visible {
+       outline: 3px solid rgba(102, 163, 191, 0.28);
+       outline-offset: 2px;
+   }
+   
+   @media (prefers-reduced-motion: reduce) {
+       *,
+       *::before,
+       *::after {
+           scroll-behavior: auto !important;
+           transition-duration: 0.01ms !important;
+           animation-duration: 0.01ms !important;
+           animation-iteration-count: 1 !important;
+       }
+   }

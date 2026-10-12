@@ -1,0 +1,79 @@
+/* ini file css utama */
+   :root {
+    --app-bg: #F2EFE7;
+
+    --app-surface: rgba(255, 255, 255, 0.20);
+    --app-surface-strong: rgba(255, 255, 255, 0.34);
+    --app-surface-solid: rgba(255, 255, 255, 0.78);
+
+    --app-border: rgba(255, 255, 255, 0.48);
+    --app-border-strong: rgba(255, 255, 255, 0.68);
+    --app-border-soft: rgba(34, 57, 111, 0.08);
+
+    --app-text: #172640;
+    --app-text-secondary: #53657D;
+    --app-text-muted: #8290A3;
+
+    --app-primary: #22396F;
+    --app-primary-2: #3368A0;
+    --app-accent: #66A3BF;
+    --app-mint: #C8DFDB;
+
+    --app-primary-soft: rgba(51, 104, 160, 0.10);
+
+    --app-success: #2E7D68;
+    --app-success-soft: rgba(46, 125, 104, 0.10);
+
+    --app-warning: #B7791F;
+    --app-warning-soft: rgba(183, 121, 31, 0.10);
+
+    --app-danger: #B33F56;
+    --app-danger-soft: rgba(179, 63, 86, 0.10);
+
+    --app-info-soft: rgba(102, 163, 191, 0.12);
+
+    --sidebar-width: 272px;
+    --content-max-width: 1600px;
+    --touch-target: 44px;
+
+    --radius-xs: 10px;
+    --radius-sm: 14px;
+    --radius-md: 20px;
+    --radius-lg: 24px;
+    --radius-xl: 28px;
+    --radius-2xl: 32px;
+
+    --glass-blur: 28px;
+    --glass-blur-strong: 36px;
+    --glass-blur-soft: 18px;
+    --glass-saturation: 180%;
+
+    --shadow-glass:
+        0 24px 60px rgba(34, 57, 111, 0.10),
+        0 8px 24px rgba(34, 57, 111, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+    --shadow-glass-strong:
+        0 32px 80px rgba(34, 57, 111, 0.14),
+        0 12px 32px rgba(34, 57, 111, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+
+    --shadow-soft:
+        0 10px 30px rgba(34, 57, 111, 0.06);
+
+    --shadow-button:
+        0 8px 20px rgba(34, 57, 111, 0.12);
+        
+    --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-size-xs: 10px;
+    --font-size-sm: 12px;
+    --font-size-base: 13px;
+    --font-size-md: 14px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 22px;
+}

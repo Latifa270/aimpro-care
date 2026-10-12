@@ -1,0 +1,648 @@
+/* =========================================================
+   AIMpro Care
+   Digital Warranty Card
+   Liquid Glass UI
+   ========================================================= */
+
+   .dwc-page {
+    --dwc-primary: #0a84ff;
+    --dwc-primary-soft: rgba(10, 132, 255, 0.12);
+    --dwc-success: #30d158;
+    --dwc-warning: #ff9f0a;
+    --dwc-danger: #ff453a;
+
+    --dwc-text: #111827;
+    --dwc-muted: #6b7280;
+    --dwc-border: rgba(17, 24, 39, 0.08);
+
+    --dwc-glass: rgba(255, 255, 255, 0.72);
+    --dwc-glass-strong: rgba(255, 255, 255, 0.88);
+
+    padding: 24px;
+}
+
+.dwc-shell {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.dwc-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.dwc-header-content {
+    min-width: 0;
+}
+
+.dwc-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 14px;
+
+    color: var(--dwc-muted);
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.dwc-back:hover {
+    color: var(--dwc-primary);
+    transform: translateX(-2px);
+}
+
+.dwc-eyebrow {
+    margin-bottom: 6px;
+
+    color: var(--dwc-primary);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.dwc-title {
+    margin: 0;
+
+    color: var(--dwc-text);
+
+    font-size: clamp(26px, 4vw, 38px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+}
+
+.dwc-subtitle {
+    margin: 9px 0 0;
+
+    max-width: 620px;
+
+    color: var(--dwc-muted);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   Actions
+   ========================================================= */
+
+.dwc-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dwc-inline-form {
+    margin: 0;
+}
+
+.dwc-button {
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--dwc-border);
+    border-radius: 14px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+.dwc-button:hover {
+    transform: translateY(-1px);
+}
+
+.dwc-button:active {
+    transform: scale(0.98);
+}
+
+.dwc-button-primary {
+    color: #fff;
+    background: var(--dwc-primary);
+    border-color: var(--dwc-primary);
+
+    box-shadow:
+        0 8px 20px rgba(10, 132, 255, 0.22);
+}
+
+.dwc-button-primary:hover {
+    color: #fff;
+}
+
+.dwc-button-secondary {
+    color: var(--dwc-primary);
+    background: var(--dwc-primary-soft);
+    border-color: rgba(10, 132, 255, 0.16);
+}
+
+.dwc-button-ghost {
+    color: var(--dwc-text);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* =========================================================
+   Main Card
+   ========================================================= */
+
+.dwc-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(244, 248, 255, 0.74)
+        );
+
+    box-shadow:
+        0 24px 70px rgba(15, 23, 42, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    backdrop-filter: blur(30px) saturate(145%);
+    -webkit-backdrop-filter: blur(30px) saturate(145%);
+}
+
+.dwc-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(10, 132, 255, 0.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(48, 209, 88, 0.08),
+            transparent 30%
+        );
+}
+
+.dwc-card-inner {
+    position: relative;
+    z-index: 1;
+
+    padding: clamp(22px, 4vw, 42px);
+}
+
+/* =========================================================
+   Card Top
+   ========================================================= */
+
+.dwc-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid var(--dwc-border);
+}
+
+.dwc-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dwc-brand-mark {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    color: #fff;
+    background: var(--dwc-primary);
+
+    box-shadow:
+        0 10px 24px rgba(10, 132, 255, 0.22);
+}
+
+.dwc-brand-name {
+    color: var(--dwc-text);
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.dwc-brand-caption {
+    margin-top: 2px;
+
+    color: var(--dwc-muted);
+
+    font-size: 11px;
+}
+
+.dwc-warranty-number {
+    text-align: right;
+}
+
+.dwc-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--dwc-muted);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.dwc-number {
+    color: var(--dwc-text);
+
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+/* =========================================================
+   Status
+   ========================================================= */
+
+.dwc-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 9px;
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    color: #16803a;
+    background: rgba(48, 209, 88, 0.11);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.dwc-status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--dwc-success);
+
+    box-shadow:
+        0 0 0 4px rgba(48, 209, 88, 0.11);
+}
+
+/* =========================================================
+   Content Grid
+   ========================================================= */
+
+.dwc-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 28px;
+
+    padding-top: 28px;
+}
+
+.dwc-section-title {
+    margin: 0 0 14px;
+
+    color: var(--dwc-text);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.dwc-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.dwc-info-item {
+    padding: 14px;
+
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.dwc-info-item-full {
+    grid-column: 1 / -1;
+}
+
+.dwc-value {
+    color: var(--dwc-text);
+
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+/* =========================================================
+   QR
+   ========================================================= */
+
+.dwc-qr-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px;
+
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    text-align: center;
+}
+
+.dwc-qr-wrap {
+    width: 190px;
+    height: 190px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 12px;
+
+    border-radius: 22px;
+
+    background: #fff;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.dwc-qr {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.dwc-qr-title {
+    margin-top: 16px;
+
+    color: var(--dwc-text);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.dwc-qr-description {
+    margin: 5px 0 0;
+
+    color: var(--dwc-muted);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.dwc-public-url {
+    width: 100%;
+
+    margin-top: 14px;
+    padding: 10px;
+
+    border-radius: 12px;
+
+    color: var(--dwc-primary);
+    background: var(--dwc-primary-soft);
+
+    font-size: 10px;
+    line-height: 1.5;
+
+    word-break: break-all;
+}
+
+/* =========================================================
+   Footer Info
+   ========================================================= */
+
+.dwc-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-top: 20px;
+    padding: 15px 17px;
+
+    border: 1px solid rgba(10, 132, 255, 0.10);
+    border-radius: 17px;
+
+    background: rgba(10, 132, 255, 0.055);
+}
+
+.dwc-note-icon {
+    flex: 0 0 auto;
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    color: var(--dwc-primary);
+    background: rgba(10, 132, 255, 0.10);
+}
+
+.dwc-note-text {
+    color: var(--dwc-muted);
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .dwc-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dwc-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .dwc-content {
+        grid-template-columns: 1fr;
+    }
+
+    .dwc-qr-panel {
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dwc-page {
+        padding: 14px;
+    }
+
+    .dwc-card {
+        border-radius: 22px;
+    }
+
+    .dwc-card-inner {
+        padding: 20px;
+    }
+
+    .dwc-card-top {
+        flex-direction: column;
+    }
+
+    .dwc-warranty-number {
+        text-align: left;
+    }
+
+    .dwc-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dwc-info-item-full {
+        grid-column: auto;
+    }
+
+    .dwc-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .dwc-button,
+    .dwc-inline-form {
+        width: 100%;
+    }
+
+    .dwc-inline-form .dwc-button {
+        width: 100%;
+    }
+
+    .dwc-qr-panel {
+        max-width: none;
+    }
+}
+
+/* =========================================================
+   Print
+   ========================================================= */
+
+@media print {
+    @page {
+        size: A5 landscape;
+        margin: 0;
+    }
+
+    html,
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #fff !important;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    #dwcPrintableCard,
+    #dwcPrintableCard * {
+        visibility: visible !important;
+    }
+
+    #dwcPrintableCard {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        min-height: 100vh;
+
+        margin: 0 !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+
+        background: #fff !important;
+    }
+
+    #dwcPrintableCard .dwc-card-inner {
+        padding: 24px;
+    }
+
+    .dwc-no-print,
+    .dwc-header,
+    .dwc-actions {
+        display: none !important;
+    }
+
+    .dwc-card::before {
+        display: none !important;
+    }
+
+    .dwc-qr-wrap {
+        box-shadow: none !important;
+    }
+}

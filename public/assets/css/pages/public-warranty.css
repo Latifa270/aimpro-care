@@ -1,0 +1,659 @@
+
+:root {
+    --pw-ink: #14233b;
+    --pw-muted: #718096;
+    --pw-blue: #2463eb;
+    --pw-blue-dark: #123b79;
+    --pw-border: rgba(148, 163, 184, .2);
+    --pw-glass: rgba(255, 255, 255, .78);
+    --pw-radius: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--pw-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    background:
+        radial-gradient(ellipse at 10% 0%, #dbeafe 0, transparent 38%),
+        radial-gradient(ellipse at 100% 25%, #e0e7ff 0, transparent 35%),
+        #f5f7fc;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.pw-shell {
+    width: min(100% - 40px, 1080px);
+    margin: 0 auto;
+}
+
+.pw-header {
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid rgba(148, 163, 184, .16);
+}
+
+.pw-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.pw-brand-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    background: linear-gradient(145deg, #3478f6, #143c86);
+    box-shadow: 0 8px 20px rgba(36, 99, 235, .22);
+}
+
+.pw-brand strong,
+.pw-brand small {
+    display: block;
+}
+
+.pw-brand strong {
+    font-size: 15px;
+    letter-spacing: -.3px;
+}
+
+.pw-brand small {
+    margin-top: 3px;
+    color: var(--pw-muted);
+    font-size: 11px;
+}
+
+.pw-header-label {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.pw-main {
+    width: min(100%, 780px);
+    margin: 0 auto;
+    padding: 66px 0 56px;
+}
+
+.pw-intro {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.pw-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--pw-blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+
+.pw-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, .12);
+}
+
+.pw-intro h1 {
+    margin: 16px 0 12px;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+}
+
+.pw-intro h1 span {
+    color: var(--pw-blue);
+}
+
+.pw-intro p {
+    max-width: 540px;
+    margin: 0 auto;
+    color: var(--pw-muted);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.pw-search-card {
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: var(--pw-radius);
+    background: var(--pw-glass);
+    box-shadow: 0 18px 55px rgba(31, 51, 89, .08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.pw-search-card label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.pw-search-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 6px;
+    border: 1px solid #dbe3ef;
+    border-radius: 16px;
+    background: white;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.pw-search-control:focus-within {
+    border-color: #7aa5f9;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, .1);
+}
+
+.pw-search-icon {
+    padding-left: 10px;
+    color: #94a3b8;
+    font-size: 24px;
+}
+
+.pw-search-control input {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    border: 0;
+    outline: 0;
+    color: var(--pw-ink);
+    background: transparent;
+    font-size: 14px;
+}
+
+.pw-search-control input::placeholder {
+    color: #a0aec0;
+}
+
+.pw-search-control button {
+    min-height: 44px;
+    flex: 0 0 auto;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 12px;
+    color: white;
+    background: var(--pw-blue);
+    font-size: 13px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.pw-search-control button:hover {
+    background: #174fc8;
+}
+
+.pw-search-control button:active {
+    transform: scale(.98);
+}
+
+.pw-search-card form > small {
+    display: block;
+    margin-top: 12px;
+    color: var(--pw-muted);
+    font-size: 11px;
+}
+
+.pw-alert {
+    margin-top: 20px;
+    padding: 16px 18px;
+    border: 1px solid;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.pw-alert-error {
+    color: #9f3030;
+    border-color: #fecaca;
+    background: #fff1f2;
+}
+
+.pw-result-card {
+    margin-top: 24px;
+    padding: 36px 24px;
+    border: 1px solid var(--pw-border);
+    border-radius: var(--pw-radius);
+    background: white;
+    text-align: center;
+}
+
+.pw-empty-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 16px;
+    border-radius: 18px;
+    color: #b45309;
+    background: #fef3c7;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.pw-empty-state h2 {
+    margin: 0 0 8px;
+    font-size: 19px;
+}
+
+.pw-empty-state p {
+    max-width: 400px;
+    margin: 0 auto;
+    color: var(--pw-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.pw-warranty-card {
+    position: relative;
+    overflow: hidden;
+    margin-top: 26px;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 26px;
+    color: white;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(94, 166, 255, .35), transparent 32%),
+        linear-gradient(130deg, #10294f 0%, #164b91 55%, #2463a7 100%);
+    box-shadow: 0 24px 55px rgba(16, 41, 79, .22);
+}
+
+.pw-warranty-card::before {
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    width: 270px;
+    height: 270px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.pw-card-top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px 34px 24px;
+}
+
+.pw-card-kicker,
+.pw-label {
+    display: block;
+    color: rgba(255, 255, 255, .64);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .1em;
+}
+
+.pw-card-top h2 {
+    margin: 10px 0 5px;
+    font-size: 24px;
+    letter-spacing: -.5px;
+}
+
+.pw-card-top p {
+    margin: 0;
+    color: rgba(255, 255, 255, .72);
+    font-size: 12px;
+}
+
+.pw-card-emblem {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, .32);
+    border-radius: 17px;
+    color: white;
+    background: rgba(255, 255, 255, .13);
+    font-size: 26px;
+    font-weight: 800;
+    backdrop-filter: blur(10px);
+}
+
+.pw-card-body {
+    position: relative;
+    padding: 26px 34px 30px;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, .055);
+}
+
+.pw-card-product h3 {
+    margin: 9px 0;
+    font-size: clamp(20px, 3vw, 27px);
+    line-height: 1.25;
+    letter-spacing: -.5px;
+}
+
+.pw-card-product p {
+    margin: 0;
+    color: rgba(255, 255, 255, .72);
+    font-size: 12px;
+}
+
+.pw-card-product p strong {
+    color: white;
+}
+
+.pw-warranty-number {
+    margin-top: 26px;
+}
+
+.pw-warranty-number strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 20px;
+    letter-spacing: .04em;
+    overflow-wrap: anywhere;
+}
+
+.pw-card-divider {
+    height: 1px;
+    margin: 25px 0;
+    background: rgba(255, 255, 255, .2);
+}
+
+.pw-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 30px;
+}
+
+.pw-card-grid > div {
+    min-width: 0;
+}
+
+.pw-card-grid strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.pw-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.pw-status span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fbbf24;
+}
+
+.pw-status.is-active span {
+    background: #4ade80;
+    box-shadow: 0 0 0 4px rgba(74, 222, 128, .13);
+}
+
+.pw-status.is-expired span {
+    background: #f87171;
+}
+
+.pw-card-footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 34px;
+    border-top: 1px solid rgba(255, 255, 255, .14);
+    color: rgba(255, 255, 255, .65);
+    font-size: 10px;
+    letter-spacing: .04em;
+}
+
+.pw-verification-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 20px;
+    padding: 18px;
+    border: 1px solid;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .72);
+}
+
+.pw-verification-note.is-success {
+    border-color: #bbf7d0;
+}
+
+.pw-verification-note.is-warning {
+    border-color: #fde68a;
+}
+
+.pw-verification-icon {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border-radius: 11px;
+    color: #166534;
+    background: #dcfce7;
+    font-weight: 800;
+}
+
+.pw-verification-note.is-warning .pw-verification-icon {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.pw-verification-note strong {
+    display: block;
+    margin: 1px 0 5px;
+    font-size: 13px;
+}
+
+.pw-verification-note p {
+    margin: 0;
+    color: var(--pw-muted);
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.pw-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pw-download-button,
+.pw-print-button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .2s, background .2s;
+}
+
+.pw-download-button {
+    color: white;
+    background: var(--pw-blue);
+}
+
+.pw-download-button:hover {
+    color: white;
+    background: #174fc8;
+}
+
+.pw-print-button {
+    color: #334155;
+    border-color: #dbe3ef;
+    background: rgba(255, 255, 255, .75);
+}
+
+.pw-download-button:active,
+.pw-print-button:active {
+    transform: scale(.98);
+}
+
+.pw-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 20px 0 28px;
+    border-top: 1px solid rgba(148, 163, 184, .16);
+    color: #8491a5;
+    font-size: 11px;
+}
+
+.pw-footer strong {
+    color: #52627a;
+}
+
+@media (max-width: 600px) {
+    .pw-shell {
+        width: min(100% - 28px, 480px);
+    }
+
+    .pw-header {
+        min-height: 70px;
+    }
+
+    .pw-header-label {
+        font-size: 9px;
+        text-align: right;
+    }
+
+    .pw-main {
+        padding: 42px 0 38px;
+    }
+
+    .pw-intro {
+        margin-bottom: 24px;
+    }
+
+    .pw-intro h1 {
+        font-size: 34px;
+        letter-spacing: -1.2px;
+    }
+
+    .pw-intro p {
+        font-size: 13px;
+    }
+
+    .pw-search-card {
+        padding: 17px;
+        border-radius: 20px;
+    }
+
+    .pw-search-control {
+        flex-wrap: wrap;
+        padding: 7px;
+    }
+
+    .pw-search-control input {
+        flex: 1;
+    }
+
+    .pw-search-control button {
+        width: 100%;
+    }
+
+    .pw-card-top {
+        padding: 24px 22px 20px;
+    }
+
+    .pw-card-body {
+        padding: 23px 22px;
+    }
+
+    .pw-card-grid {
+        gap: 22px 14px;
+    }
+
+    .pw-card-grid strong {
+        font-size: 12px;
+    }
+
+    .pw-card-footer {
+        padding: 14px 22px;
+        font-size: 9px;
+    }
+
+    .pw-actions {
+        flex-direction: column;
+    }
+
+    .pw-download-button,
+    .pw-print-button {
+        width: 100%;
+    }
+
+    .pw-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .pw-header,
+    .pw-intro,
+    .pw-search-card,
+    .pw-footer,
+    .pw-actions,
+    .pw-verification-note {
+        display: none !important;
+    }
+
+    .pw-shell,
+    .pw-main {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pw-warranty-card {
+        margin: 0;
+        color: #fff !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        box-shadow: none;
+    }
+}

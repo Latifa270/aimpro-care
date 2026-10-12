@@ -1,0 +1,65 @@
+{
+    "name": "AIMpro Care - After-Sales & Quality Control",
+    "short_name": "AIMpro Care",
+    "description": "Sistem After-Sales & Quality Control untuk produk AIMpro Care",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#F2EFE7",
+    "theme_color": "#22396F",
+    "scope": "/",
+    "lang": "id",
+    "dir": "ltr",
+    "icons": [
+        {
+            "src": "/assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/assets/icons/icon-192-maskable.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/assets/icons/icon-512-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Dashboard",
+            "short_name": "Dashboard",
+            "description": "Buka dashboard",
+            "url": "/admin/dashboard",
+            "icons": [
+                {
+                    "src": "/assets/icons/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Cek Garansi",
+            "short_name": "Cek Garansi",
+            "description": "Cek status garansi",
+            "url": "/cek-garansi",
+            "icons": [
+                {
+                    "src": "/assets/icons/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}

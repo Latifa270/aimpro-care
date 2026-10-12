@@ -1,0 +1,223 @@
+/* responsive tablet */
+@media (max-width: 1199.98px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+
+    .app-sidebar {
+        top: 14px;
+        left: 14px;
+        bottom: 14px;
+        padding: 16px;
+    }
+
+    .app-main {
+        margin-left: calc(var(--sidebar-width) + 28px);
+        padding: 14px 14px 32px;
+    }
+}
+
+/* responsive mobile */
+@media (max-width: 991.98px) {
+    body {
+        padding-bottom: calc(82px + env(safe-area-inset-bottom));
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1090;
+        display: block;
+        background: rgba(23, 38, 64, 0.16);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity var(--transition-normal),
+            visibility var(--transition-normal);
+    }
+
+    body.sidebar-open .sidebar-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .app-sidebar {
+        top: 12px;
+        left: 12px;
+        bottom: 12px;
+        width: min(300px, calc(100vw - 24px));
+        padding:
+            max(16px, env(safe-area-inset-top))
+            16px
+            max(16px, env(safe-area-inset-bottom));
+
+        transform: translateX(calc(-100% - 24px));
+        transition: transform var(--transition-normal);
+        z-index: 1100;
+    }
+
+    .app-sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-brand {
+        margin-bottom: 18px;
+    }
+
+    .sidebar-close-button {
+        display: inline-flex;
+    }
+
+    .sidebar-link {
+        min-height: 48px;
+    }
+
+    .app-main {
+        margin-left: 0;
+        padding:
+            12px
+            12px
+            calc(92px + env(safe-area-inset-bottom));
+    }
+
+    .app-topbar {
+        min-height: 68px;
+        padding: 10px 12px;
+        border-radius: 20px;
+    }
+
+    .mobile-menu-button {
+        display: inline-flex;
+    }
+
+    .page-heading h1 {
+        font-size: 16px;
+    }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 4px;
+        padding: 7px;
+        border-radius: 22px;
+        z-index: 1050;
+    }
+
+    .mobile-nav-item {
+        min-width: var(--touch-target);
+        min-height: 50px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2px;
+        border-radius: 16px;
+        color: var(--app-text-muted);
+        font-size: 9px;
+        font-weight: 500;
+
+        transition:
+            background var(--transition-fast),
+            color var(--transition-fast),
+            transform var(--transition-fast);
+    }
+
+    .mobile-nav-item i {
+        font-size: 18px;
+    }
+
+    .mobile-nav-item.active {
+        color: var(--app-primary);
+        background: var(--app-primary-soft);
+        font-weight: 600;
+    }
+
+    .mobile-nav-item:active {
+        transform: scale(0.96);
+    }
+
+    .mobile-nav-item-disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+    }
+
+    .app-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .app-search {
+        width: 100%;
+    }
+
+    .app-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* responsive mobile */
+@media (max-width: 575.98px) {
+    .app-sidebar {
+        width: calc(100vw - 20px);
+        top: 10px;
+        left: 10px;
+        bottom: 10px;
+        border-radius: var(--radius-lg);
+    }
+
+    .sidebar-link {
+        min-height: 50px;
+        border-radius: 16px;
+    }
+
+    .app-topbar {
+        padding: 9px 10px;
+    }
+
+    .page-heading-label {
+        font-size: 9px;
+    }
+
+    .page-heading h1 {
+        font-size: 15px;
+    }
+
+    .topbar-avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .app-content {
+        padding-top: 14px;
+    }
+
+    .mobile-bottom-nav {
+        left: 8px;
+        right: 8px;
+        border-radius: 20px;
+    }
+
+    .app-card-body {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .app-toolbar .btn-app-primary {
+        width: 100%;
+    }
+}

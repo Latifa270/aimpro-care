@@ -1,129 +1,94 @@
-<?= $this->extend('layouts/app') ?>
+<div
+    class="modal fade app-modal"
+    id="addProductModal"
+    tabindex="-1"
+    aria-hidden="true">
 
-<?= $this->section('content') ?>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
 
-<div class="container-fluid px-0">
+            <form action="<?= site_url('admin/products') ?>" method="post">
+                <?= csrf_field() ?>
 
-    <div class="mb-4">
-        <h2 class="fw-semibold mb-1">
-            Tambah Produk
-        </h2>
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title mb-1">
+                            <i class="bi bi-plus-circle me-2"></i>
+                            Tambah Produk
+                        </h5>
+                        <small class="app-modal-subtitle">
+                            Lengkapi informasi master produk
+                        </small>
+                    </div>
+                </div>
 
-        <p class="text-secondary mb-0">
-            Tambahkan produk baru ke master data.
-        </p>
-    </div>
+                <div class="modal-body">
 
-    <?php if (session()->getFlashdata('errors')): ?>
+                    <div class="mb-3">
+                        <label class="form-label">Nama Produk</label>
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            value="<?= old('name') ?>"
+                            placeholder="Contoh: Kulkas, Televisi, Mesin cuci"
+                            maxlength="150"
+                            required>
+                    </div>
 
-        <div class="alert alert-danger rounded-4 border-0 mb-4">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Brand</label>
+                            <input
+                                type="text"
+                                name="brand"
+                                class="form-control"
+                                value="<?= old('brand') ?>"
+                                placeholder="Contoh: Samsung, LG, Sharp"
+                                maxlength="100"
+                                required>
+                        </div>
 
-            <ul class="mb-0">
-                <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                    <li><?= esc($error) ?></li>
-                <?php endforeach; ?>
-            </ul>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Model</label>
+                            <input
+                                type="text"
+                                name="model"
+                                class="form-control"
+                                value="<?= old('model') ?>"
+                                placeholder="Contoh: RT-42, KX-100"
+                                maxlength="100"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea
+                            name="description"
+                            rows="4"
+                            class="form-control"
+                            placeholder="Masukkan deskripsi produk"><?= old('description') ?></textarea>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn-app-secondary"
+                        data-bs-dismiss="modal">
+                        Batal
+                    </button>
+
+                    <button type="submit" class="btn-app-primary">
+                        <i class="bi bi-check-circle"></i>
+                        <span>Simpan Produk</span>
+                    </button>
+                </div>
+
+            </form>
 
         </div>
-
-    <?php endif; ?>
-
-    <div class="dashboard-section-card p-4">
-
-        <form action="<?= site_url('admin/products') ?>" method="post">
-
-            <?= csrf_field() ?>
-
-            <div class="row g-3">
-
-                <div class="col-12">
-
-                    <label for="name" class="form-label">
-                        Nama Produk
-                    </label>
-
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        name="name"
-                        value="<?= old('name') ?>"
-                        maxlength="150"
-                        required>
-
-                </div>
-
-                <div class="col-12 col-md-6">
-
-                    <label for="brand" class="form-label">
-                        Brand
-                    </label>
-
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="brand"
-                        name="brand"
-                        value="<?= old('brand') ?>"
-                        maxlength="100"
-                        required>
-
-                </div>
-
-                <div class="col-12 col-md-6">
-
-                    <label for="model" class="form-label">
-                        Model
-                    </label>
-
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="model"
-                        name="model"
-                        value="<?= old('model') ?>"
-                        maxlength="100"
-                        required>
-
-                </div>
-
-                <div class="col-12">
-
-                    <label for="description" class="form-label">
-                        Deskripsi
-                    </label>
-
-                    <textarea
-                        class="form-control"
-                        id="description"
-                        name="description"
-                        rows="5"><?= old('description') ?></textarea>
-
-                </div>
-
-            </div>
-
-            <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
-
-                <a
-                    href="<?= site_url('admin/products') ?>"
-                    class="btn btn-light rounded-pill px-4">
-                    Batal
-                </a>
-
-                <button
-                    type="submit"
-                    class="btn btn-dark rounded-pill px-4">
-                    <i class="bi bi-check-lg me-1"></i>
-                    Simpan Produk
-                </button>
-
-            </div>
-
-        </form>
-
     </div>
-
 </div>
-
-<?= $this->endSection() ?>

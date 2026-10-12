@@ -9,82 +9,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --background-color: #f5f7fb;
-        }
-
-        * {
-            font-family: 'poppins', sans-serif;
-        }
-
-        body {
-            min-height: 100vh;
-            background: var(--background-color)
-        }
-
-        .login-wrapper {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-
-        .login-card {
-            max-width: 420px;
-            width: 100%;
-            border: 0;
-            border-radius: 20px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
-        }
-
-        .login-logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .login-subtitle {
-            font-size: 14px;
-            color: #6c757d;
-        }
-
-        .form-control {
-            min-height: 48px;
-            border-radius: 12px;
-        }
-
-        .btn-login {
-            min-height: 48px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= base_url('assets/css/pages/auth.css')  ?>">
 </head>
 
 <body>
-
     <main class="login-wrapper">
-        <div class="card login-card">
-            <div class="card-body p-4 p-md-5">
+        <div class="login-card">
+            <div class="login-card-body">
 
-                <div class="text-center mb-4">
-                    <div class="login-logo">AIMpro Care</div>
-                    <p class="login-subtitle mb-0">
-                        Sistem After-Sales & Quality Control
+                <div class="login-brand">
+                    <div class="login-logo">
+                        AIMpro Care
+                    </div>
+
+                    <h1 class="login-title">
+                        Selamat Datang
+                    </h1>
+
+                    <p class="login-subtitle">
+                        Sistem AfterSales Quality Control
                     </p>
                 </div>
 
                 <?php if (session()->getFlashdata('error')): ?>
-                    <div class="alert alert-danger" role="alert">
+                    <div class="login-alert" role="alert">
                         <?= esc(session()->getFlashdata('error')) ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if (session()->getFlashdata('errors')): ?>
-                    <div class="alert alert-danger" role="alert">
+                    <div class="login-alert" role="alert">
                         <?php foreach (session()->getFlashdata('errors') as $error): ?>
                             <div><?= esc($error) ?></div>
                         <?php endforeach; ?>
@@ -94,14 +48,14 @@
                 <form action="<?= site_url('login') ?>" method="post">
                     <?= csrf_field() ?>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">
+                    <div class="login-form-group">
+                        <label for="email" class="login-label">
                             Email
                         </label>
 
                         <input
                             type="email"
-                            class="form-control"
+                            class="login-input"
                             id="email"
                             name="email"
                             placeholder="Masukkan email"
@@ -109,14 +63,14 @@
                             required>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="password" class="form-label">
+                    <div class="login-form-group">
+                        <label for="password" class="login-label">
                             Password
                         </label>
 
                         <input
                             type="password"
-                            class="form-control"
+                            class="login-input"
                             id="password"
                             name="password"
                             placeholder="Masukkan password"
@@ -124,12 +78,14 @@
                             required>
                     </div>
 
-                    <button
-                        type="submit"
-                        class="btn btn-primary btn-login w-100">
+                    <button type="submit" class="btn-login">
                         Masuk
                     </button>
                 </form>
+
+                <div class="login-footer">
+                    AIMpro Care - After-Sales & Quality Control
+                </div>
 
             </div>
         </div>

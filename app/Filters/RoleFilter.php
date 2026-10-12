@@ -12,13 +12,31 @@ class RoleFilter implements FilterInterface
     {
         $userRole = session()->get('role');
 
-        if (! $userRole || empty($arguments)) {
-            return redirect()->to('/login');
+        if (empty($userRole)) {
+            return redirect()
+                ->to('/login')
+                ->with('error', 'Sesi pengguna tidak valid. Silahkan login kembali.');
+        }
+
+        if (empty($arguments)) {
+            log_message('error', 'RoleFilter dipanggil tanpa argumen role yang diizinkan. ');
+
+            return service('response')
+                ->setStatusCode(403)
+                ->setBody('Akses ditolak. ');
         }
 
         if (! in_array($userRole, $arguments, true)) {
-            return redirect()->to('/login');
+            log_message(
+                'warning',
+                'Akses ditolak untuk role: ' . $userRole
+            );
+
+            return service('response')
+                ->setStatusCode(403)
+                ->setBody('Anda tidak memiliki izin untuk mengakses halaman ini.');
         }
+        return null;
     }
 
     public function after(
